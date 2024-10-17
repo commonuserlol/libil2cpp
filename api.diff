@@ -738,7 +738,7 @@
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_generic (const Il2CppClass * klass);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_inflated (const Il2CppClass * klass);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_assignable_from (Il2CppClass * klass, Il2CppClass * oklass);;
---- 2021/2021.3.44f1/api.h
+--- 2021/2021.3.45f1/api.h
 +++ 2022/2022.1.0a7/api.h
 @@ -136,7 +136,6 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);

@@ -6308,7 +6308,7 @@
      ParameterIndex parameterStart;
      GenericContainerIndex genericContainerIndex;
      uint32_t token;
---- 2021/2021.3.44f1/struct.h
+--- 2021/2021.3.45f1/struct.h
 +++ 2022/2022.1.0a7/struct.h
 @@ -136,10 +136,8 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
