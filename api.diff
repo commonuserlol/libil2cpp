@@ -738,7 +738,7 @@
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_generic (const Il2CppClass * klass);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_inflated (const Il2CppClass * klass);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_assignable_from (Il2CppClass * klass, Il2CppClass * oklass);;
---- 2021/2021.3.45f1/api.h
+--- 2021/2021.3.46f1/api.h
 +++ 2022/2022.1.0a7/api.h
 @@ -136,7 +136,6 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
@@ -826,7 +826,18 @@
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_generic (const Il2CppClass * klass);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_inflated (const Il2CppClass * klass);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_assignable_from (Il2CppClass * klass, Il2CppClass * oklass);;
---- 2022/2022.3.52f1/api.h
+--- 2022/2022.3.53f1/api.h
++++ 2022/2022.3.54f1/api.h
+@@ -148,6 +148,8 @@ __attribute__ ((visibility ("default")))
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config_utf16 (const Il2CppChar * executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config (const char* executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_memory_callbacks (Il2CppMemoryCallbacks * callbacks);;
++__attribute__ ((visibility ("default"))) void il2cpp_memory_pool_set_region_size (size_t size);;
++__attribute__ ((visibility ("default"))) size_t il2cpp_memory_pool_get_region_size ();;
+ __attribute__ ((visibility ("default"))) const Il2CppImage* il2cpp_get_corlib ();;
+ __attribute__ ((visibility ("default"))) void il2cpp_add_internal_call (const char* name, Il2CppMethodPointer method);;
+ __attribute__ ((visibility ("default"))) Il2CppMethodPointer il2cpp_resolve_icall (const char* name);;
+--- 2022/2022.3.54f1/api.h
 +++ 2023/2023.1.0a4/api.h
 @@ -136,7 +136,6 @@ typedef void (*Il2CppLogCallback)(const
  typedef size_t(*Il2CppBacktraceFunc) (Il2CppMethodPointer* buffer, size_t maxSize);
@@ -836,7 +847,16 @@
  __attribute__ ((visibility ("default"))) int il2cpp_init (const char* domain_name);;
  __attribute__ ((visibility ("default"))) int il2cpp_init_utf16 (const Il2CppChar * domain_name);;
  __attribute__ ((visibility ("default"))) void il2cpp_shutdown ();;
-@@ -164,7 +163,6 @@ __attribute__ ((visibility ("default")))
+@@ -148,8 +147,6 @@ __attribute__ ((visibility ("default")))
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config_utf16 (const Il2CppChar * executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config (const char* executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_memory_callbacks (Il2CppMemoryCallbacks * callbacks);;
+-__attribute__ ((visibility ("default"))) void il2cpp_memory_pool_set_region_size (size_t size);;
+-__attribute__ ((visibility ("default"))) size_t il2cpp_memory_pool_get_region_size ();;
+ __attribute__ ((visibility ("default"))) const Il2CppImage* il2cpp_get_corlib ();;
+ __attribute__ ((visibility ("default"))) void il2cpp_add_internal_call (const char* name, Il2CppMethodPointer method);;
+ __attribute__ ((visibility ("default"))) Il2CppMethodPointer il2cpp_resolve_icall (const char* name);;
+@@ -166,7 +163,6 @@ __attribute__ ((visibility ("default")))
  __attribute__ ((visibility ("default"))) const Il2CppImage* il2cpp_assembly_get_image (const Il2CppAssembly * assembly);;
  __attribute__ ((visibility ("default"))) void il2cpp_class_for_each (void(*klassReportFunc)(Il2CppClass* klass, void* userData), void* userData);;
  __attribute__ ((visibility ("default"))) const Il2CppType* il2cpp_class_enum_basetype (Il2CppClass * klass);;
@@ -844,7 +864,7 @@
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_generic (const Il2CppClass * klass);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_inflated (const Il2CppClass * klass);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_class_is_assignable_from (Il2CppClass * klass, Il2CppClass * oklass);;
-@@ -347,7 +345,6 @@ __attribute__ ((visibility ("default")))
+@@ -349,7 +345,6 @@ __attribute__ ((visibility ("default")))
  __attribute__ ((visibility ("default"))) uint32_t il2cpp_type_get_attrs (const Il2CppType * type);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_type_equals (const Il2CppType * type, const Il2CppType * otherType);;
  __attribute__ ((visibility ("default"))) char* il2cpp_type_get_assembly_qualified_name (const Il2CppType * type);;
@@ -852,7 +872,7 @@
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_type_is_static (const Il2CppType * type);;
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_type_is_pointer_type (const Il2CppType * type);;
  __attribute__ ((visibility ("default"))) const Il2CppAssembly* il2cpp_image_get_assembly (const Il2CppImage * image);;
-@@ -375,4 +372,3 @@ __attribute__ ((visibility ("default")))
+@@ -377,4 +372,3 @@ __attribute__ ((visibility ("default")))
  __attribute__ ((visibility ("default"))) void il2cpp_class_set_userdata (Il2CppClass * klass, void* userdata);;
  __attribute__ ((visibility ("default"))) int il2cpp_class_get_userdata_offset ();;
  __attribute__ ((visibility ("default"))) void il2cpp_set_default_thread_affinity (int64_t affinity_mask);;
@@ -957,3 +977,36 @@
  __attribute__ ((visibility ("default"))) uint8_t il2cpp_stats_dump_to_file (const char *path);;
  __attribute__ ((visibility ("default"))) uint64_t il2cpp_stats_get_value (Il2CppStat stat);;
  __attribute__ ((visibility ("default"))) Il2CppDomain* il2cpp_domain_get ();;
+--- 6000/6000.0.28f1/api.h
++++ 6000/6000.0.29f1/api.h
+@@ -150,6 +150,8 @@ __attribute__ ((visibility ("default")))
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config_utf16 (const Il2CppChar * executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config (const char* executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_memory_callbacks (Il2CppMemoryCallbacks * callbacks);;
++__attribute__ ((visibility ("default"))) void il2cpp_memory_pool_set_region_size (size_t size);;
++__attribute__ ((visibility ("default"))) size_t il2cpp_memory_pool_get_region_size ();;
+ __attribute__ ((visibility ("default"))) const Il2CppImage* il2cpp_get_corlib ();;
+ __attribute__ ((visibility ("default"))) void il2cpp_add_internal_call (const char* name, Il2CppMethodPointer method);;
+ __attribute__ ((visibility ("default"))) Il2CppMethodPointer il2cpp_resolve_icall (const char* name);;
+--- 6000/6000.0.30f1/api.h
++++ 6000/6000.1.0a2/api.h
+@@ -150,8 +150,6 @@ __attribute__ ((visibility ("default")))
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config_utf16 (const Il2CppChar * executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config (const char* executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_memory_callbacks (Il2CppMemoryCallbacks * callbacks);;
+-__attribute__ ((visibility ("default"))) void il2cpp_memory_pool_set_region_size (size_t size);;
+-__attribute__ ((visibility ("default"))) size_t il2cpp_memory_pool_get_region_size ();;
+ __attribute__ ((visibility ("default"))) const Il2CppImage* il2cpp_get_corlib ();;
+ __attribute__ ((visibility ("default"))) void il2cpp_add_internal_call (const char* name, Il2CppMethodPointer method);;
+ __attribute__ ((visibility ("default"))) Il2CppMethodPointer il2cpp_resolve_icall (const char* name);;
+--- 6000/6000.1.0a5/api.h
++++ 6000/6000.1.0a6/api.h
+@@ -150,6 +150,8 @@ __attribute__ ((visibility ("default")))
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config_utf16 (const Il2CppChar * executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_config (const char* executablePath);;
+ __attribute__ ((visibility ("default"))) void il2cpp_set_memory_callbacks (Il2CppMemoryCallbacks * callbacks);;
++__attribute__ ((visibility ("default"))) void il2cpp_memory_pool_set_region_size (size_t size);;
++__attribute__ ((visibility ("default"))) size_t il2cpp_memory_pool_get_region_size ();;
+ __attribute__ ((visibility ("default"))) const Il2CppImage* il2cpp_get_corlib ();;
+ __attribute__ ((visibility ("default"))) void il2cpp_add_internal_call (const char* name, Il2CppMethodPointer method);;
+ __attribute__ ((visibility ("default"))) Il2CppMethodPointer il2cpp_resolve_icall (const char* name);;
